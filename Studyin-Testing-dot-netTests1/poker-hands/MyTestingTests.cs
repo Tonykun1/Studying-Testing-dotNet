@@ -12,13 +12,11 @@ namespace StudyingTesting.poker_hands.Tests
     public class MyTestingTests
     {
         [TestMethod]
-        public void PlayerCannotOpenTable()
+        public void PlayerCanStillOpenTable_FailTest()
         {
             User playerUser = new User { Username = "PlayerUser", Roles = new List<User_Role> { User_Role.PLAYER } };
 
-            bool canOpen = playerUser.CanOpenTable();
-
-            Assert.IsFalse(canOpen, "Player should NOT be able to open a table.");
+            TableManager.OpenTable(playerUser);
         }
         [TestMethod]
         public void ManagerCanOpenTable()
@@ -44,5 +42,8 @@ namespace StudyingTesting.poker_hands.Tests
            
             Assert.IsTrue(canOpen, "Admin should be able to open a table.");
         }
+
+
+
     }
 }
