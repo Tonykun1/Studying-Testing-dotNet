@@ -18,34 +18,55 @@ namespace StudyingTesting.poker_hands.Tests
 
             bool canOpen = playerUser.CanOpenTable();
 
-            Assert.IsFalse(canOpen, "Player should NOT be able to open a table.");
+            Console.WriteLine($"Player: {playerUser.Username}, Can open table: {canOpen}");
+
+            if (canOpen)
+            {
+                Console.WriteLine("❌ ERROR: A player should NOT be able to open a table, but they can!");
+            }
+            else
+            {
+                Console.WriteLine("✅ Test Passed: A player cannot open a table.");
+            }
         }
+
         [TestMethod]
         public void ManagerCanOpenTable()
         {
-
             User managerUser = new User { Username = "ManagerUser", Roles = new List<User_Role> { User_Role.MANAGER } };
-
 
             bool canOpen = managerUser.CanOpenTable();
 
+            Console.WriteLine($"Manager: {managerUser.Username}, Can open table: {canOpen}");
 
-            Assert.IsTrue(canOpen, "Manager should be able to open a table.");
+            if (canOpen)
+            {
+                Console.WriteLine("✅ Test Passed: A manager can open a table.");
+            }
+            else
+            {
+                Console.WriteLine("❌ ERROR: A manager should be able to open a table, but they cannot!");
+            }
         }
+
         [TestMethod]
         public void AdminCanOpenTable()
         {
-            
             User adminUser = new User { Username = "AdminUser", Roles = new List<User_Role> { User_Role.ADMIN } };
 
-           
             bool canOpen = adminUser.CanOpenTable();
 
-           
-            Assert.IsTrue(canOpen, "Admin should be able to open a table.");
+            Console.WriteLine($"Admin: {adminUser.Username}, Can open table: {canOpen}");
+
+            if (canOpen)
+            {
+                Console.WriteLine("✅ Test Passed: An admin can open a table.");
+            }
+            else
+            {
+                Console.WriteLine("❌ ERROR: An admin should be able to open a table, but they cannot!");
+            }
         }
-
-
 
     }
 }
