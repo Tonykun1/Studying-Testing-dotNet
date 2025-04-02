@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudyingTesting.user
+namespace StudyingTesting.users
 {
     public enum User_Role
     {
